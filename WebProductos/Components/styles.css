@@ -1,0 +1,25 @@
+* {
+background-color: rgba(54, 57, 63, 255) !important;
+}
+#productList {
+    display: flex;
+    justify-content: space-between;
+}
+.card {
+    height: 33rem;
+    width: 25rem;
+}
+.car-image {
+    width: 25rem;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.subtitle{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
