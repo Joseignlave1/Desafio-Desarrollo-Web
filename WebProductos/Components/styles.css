@@ -1,25 +1,127 @@
+/* Estilo general */
 * {
-background-color: rgba(54, 57, 63, 255) !important;
-}
-#productList {
-    display: flex;
-    justify-content: space-between;
-}
-.card {
-    height: 33rem;
-    width: 25rem;
-}
-.car-image {
-    width: 25rem;
-}
-.title {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.subtitle{
-    display: flex;
-    justify-content: center;
+/* Título */
+#titulo_almacen {
+    font-family: 'Arial', sans-serif;
+    font-size: 3em;
+    color: #ffffff;
+    text-align: center;
+    background-color: #F08626;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+
+
+/* Input de búsqueda */
+#searchInput {
+    background-color: #FFE3C9;
+    color: #000000;
+    border: 2px solid #F08626;
+    border-radius: 15px;
+    width: 100%;
+    height: 2rem;
     margin-top: 1rem;
+    padding: 0 10px;
+}
+#searchInput::placeholder {
+    color: gray;
+}
+
+
+/* Lista de productos */
+#productList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+
+}
+
+/* Tarjeta de producto */
+.card {
+    background-color: #FFE3C9;
+    height: auto;
+    width: 100%;
+    max-width: 25rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen de la tarjeta */
+.car-image {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Estilos para títulos y subtítulos dentro de la tarjeta */
+.title, .subtitle, .media-content, .card-content, .content {
+    text-align: center;
+    background-color: #FFE3C9;
+    color: #000000;
+    border-radius: 15px;
+}
+
+/* Estilo para títulos dentro de las tarjetas */
+.titulo_producto {
+    color: #F08626;
+}
+
+/* Estilo para el subtítulo dentro de las tarjetas */
+.subtitle {
+    color: #009688;
+}
+
+/* Estilo para imágenes redondeadas */
+.is-rounded {
+    border-radius: 15px !important;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    #titulo_almacen {
+        font-size: 2em;
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    #searchInput {
+        height: 1.5rem;
+    }
+
+    .card {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    #titulo_almacen {
+        font-size: 1.5em;
+        padding: 5px;
+    }
+
+    #searchInput {
+        height: 1.2rem;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
 }
