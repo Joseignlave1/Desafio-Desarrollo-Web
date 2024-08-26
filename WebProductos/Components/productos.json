@@ -1,0 +1,87 @@
+[
+    {
+      "name": "Coca-Cola",
+      "description": "Bebida gaseosa refrescante de cola.",
+      "price": 1.99,
+      "image": "https://via.placeholder.com/150?text=Coca-Cola",
+      "category": "Bebidas"
+    },
+    {
+      "name": "Dulce de Leche",
+      "description": "Crema dulce hecha de leche y azúcar, ideal para postres.",
+      "price": 3.49,
+      "image": "https://via.placeholder.com/150?text=Dulce+de+Leche",
+      "category": "Postres"
+    },
+    {
+      "name": "Pera",
+      "description": "Fruta fresca y jugosa, perfecta para una merienda saludable.",
+      "price": 0.99,
+      "image": "https://via.placeholder.com/150?text=Pera",
+      "category": "Frutas"
+    },
+    {
+      "name": "Galletas de Chocolate",
+      "description": "Galletas crujientes con trozos de chocolate.",
+      "price": 2.99,
+      "image": "https://via.placeholder.com/150?text=Galletas+de+Chocolate",
+      "category": "Snacks"
+    },
+    {
+      "name": "Arroz Integral",
+      "description": "Arroz integral orgánico, ideal para comidas saludables.",
+      "price": 4.99,
+      "image": "https://via.placeholder.com/150?text=Arroz+Integral",
+      "category": "Granos y Cereales"
+    },
+    {
+      "name": "Jugo de Naranja",
+      "description": "Jugo de naranja 100% natural sin azúcar añadida.",
+      "price": 3.99,
+      "image": "https://via.placeholder.com/150?text=Jugo+de+Naranja",
+      "category": "Bebidas"
+    },
+    {
+      "name": "Aceite de Oliva",
+      "description": "Aceite de oliva extra virgen, ideal para ensaladas y cocina.",
+      "price": 6.99,
+      "image": "https://via.placeholder.com/150?text=Aceite+de+Oliva",
+      "category": "Aceites y Aderezos"
+    },
+    {
+      "name": "Pan Integral",
+      "description": "Pan integral fresco, ideal para una dieta equilibrada.",
+      "price": 2.49,
+      "image": "https://via.placeholder.com/150?text=Pan+Integral",
+      "category": "Panadería"
+    },
+    {
+      "name": "Queso",
+      "description": "Queso fresco de vaca, perfecto para sándwiches y snacks.",
+      "price": 5.49,
+      "image": "https://via.placeholder.com/150?text=Queso",
+      "category": "Lácteos"
+    },
+    {
+      "name": "Leche Descremada",
+      "description": "Leche descremada pasteurizada, ideal para una dieta baja en grasas.",
+      "price": 1.79,
+      "image": "https://via.placeholder.com/150?text=Leche+Descremada",
+      "category": "Lácteos"
+    },
+    {
+      "name": "Pasta de Tomate",
+      "description": "Concentrado de tomate, ideal para salsas y guisos.",
+      "price": 1.29,
+      "image": "https://via.placeholder.com/150?text=Pasta+de+Tomate",
+      "category": "Conservas"
+    },
+    {
+      "name": "Cereal",
+      "description": "Cereal integral con fibra, ideal para un desayuno nutritivo.",
+      "price": 3.99,
+      "image": "https://via.placeholder.com/150?text=Cereal",
+      "category": "Desayunos"
+    }
+  ]
+  
