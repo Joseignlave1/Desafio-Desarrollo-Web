@@ -1,6 +1,6 @@
 /* Estilo general */
 html {
-    background-color: #f4f4f4 !important;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -30,7 +30,7 @@ html {
     color: #000000;
     border: 2px solid #F08626;
     border-radius: 15px;
-    width: 100%;
+    width: 30rem;
     height: 2rem;
     margin-top: 1rem;
     padding: 0 10px;
@@ -92,7 +92,29 @@ html {
     width: calc(100% - 20px);
     box-sizing: border-box;
 }
+.container_input_dropdown {
+    display: flex;
+    align-items: center;
+}
 
+#dropdown_button {
+    background-color: #FFE3C9;
+    color: #000000;
+    border: 2px solid #F08626;
+    border-radius: 15px;
+    height: 2rem;
+    margin-left: 3rem;
+}
+
+#boton_default:hover {
+    background-color: #F08626;
+}
+#boton_menor_precio:hover {
+    background-color: #2d2721;
+}
+#boton_mayor_precio:hover {
+    background-color: #F08626;
+}
 /* Media Queries */
 @media (max-width: 768px) {
     #titulo_almacen {
