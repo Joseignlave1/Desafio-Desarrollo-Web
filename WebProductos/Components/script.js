@@ -64,8 +64,7 @@ const productos = [
       }
   ];
 
-  const showProducts = productos.filter((e) => {
-    console.log(e.imagen)
+  const showProducts = productos.forEach((e) => {
     let card = "";
      card += `<div class="card" >
                     <div class="car-image">
@@ -101,42 +100,56 @@ const productos = [
             showProducts
         });
 
-const filtrarProductos = () => {
-    const valorInput = input.value.toLowerCase();
 
     //cards es una HTML collection, un tipo de "array" que no es "real"(no tiene los metodos tipicos de arrays), que esta cargado en el html
     //Con el metodo Array.from() convertimos ese "array" en un array real, para asi ir iterando sobre el
 
-    const productosFiltrados = productos.filter((e) => {
-        const card =+ `<div class="card" >
-                        <div class="car-image">
-                            <figure class="image is-4by3">
-                                <img 
-                                src=${e.imagen};
-                                alt=${e.alt};
-                                draggable="false"                           
-                                >
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <p class="title is-5 titulo_producto">${e.nombre}</p>
-                            <p class="subtitle">${e.precio}</p>
-                        </div>
-                        <div class="card-content">
-                            <div class="content">
-                                ${e.descripcion};
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="content">
-                                ${e.categoria};
-                            </div>
-                        </div>
-                    </div> `
-    });
+    const filtrarProductos = () => {
+        const valorInput = input.value.toLowerCase();
 
-    
-};
+        //Primero filtramos los productos que coinciden con el valor del input
+        
+        const productosFiltrados = productos.filter((e) => {
+            const tituloProducto = e.nombre.toLowerCase();
+            return tituloProducto.includes(valorInput);
+        });
+        let card = "";
+        if(productosFiltrados.length > 0) {
+            productosFiltrados.forEach((e) => {
+                card += `<div class="card" >
+                    <div class="car-image">
+                        <figure class="image is-4by3">
+                            <img 
+                            src="${e.imagen}"
+                            alt=${e.alt}
+                            draggable="false"                           
+                            >
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-5 titulo_producto">${e.nombre}</p>
+                        <p class="subtitle">${e.precio}</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            ${e.descripcion}
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            ${e.categoria}
+                        </div>
+                    </div>
+                </div> `
+            
+        });
+        } else {
+            card = `<p> No se han encontrado productos </p> `
+        }
+        productList.innerHTML = card;
+    };
+
+input.addEventListener("input", filtrarProductos)
 
 
 
