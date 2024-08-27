@@ -8,7 +8,7 @@ const productList = document.getElementById("productList");
 const productos = [
     {
       "nombre": "Coca Cola",
-      "precio": "240$",
+      "precio": 240,
       "descripcion": "Botella de coca cola de 3 litros, ideal para compartir en familia",
       "imagen": "/WebProductos/ImagenesProductos/CocaColaBotella.jpg",
       "alt": "Botella de Coca Cola",
@@ -16,7 +16,7 @@ const productos = [
     },
     {
       "nombre": "Churrascos",
-      "precio": "800$",
+      "precio": 800,
       "descripcion": "120g 3 Unidades de churrascos, ideal para los asados en familia",
       "imagen": "/WebProductos/ImagenesProductos/Churrascos.jpg",
       "alt": "120g, 3 unidades de churrascos en bolsa",
@@ -24,7 +24,7 @@ const productos = [
     },
     {
       "nombre": "Dulce De Leche",
-      "precio": "1200$",
+      "precio": 1200,
       "descripcion": "Dulce de leche La Serenisima importado Argentino",
       "imagen": "/WebProductos/ImagenesProductos/DulceDeLeche.jpg",
       "alt": "Dulce de leche La Serenisima importado Argentino",
@@ -32,7 +32,7 @@ const productos = [
     },
     {
       "nombre": "Manzanas Rojas",
-      "precio": "89$ Kilo",
+      "precio": 89,
       "descripcion": "Manzanas Rojas de excelente calidad",
       "imagen": "/WebProductos/ImagenesProductos/ManzanasRojas.jpg",
       "alt": "Manzanas Rojas",
@@ -40,7 +40,7 @@ const productos = [
     },
     {
       "nombre": "Peras",
-      "precio": "100$ Kilo",
+      "precio": 100,
       "descripcion": "Peras de excelente calidad",
       "imagen": "/WebProductos/ImagenesProductos/Peras.jpg",
       "alt": "Peras",
@@ -48,7 +48,7 @@ const productos = [
     },
     {
       "nombre": "Sandias",
-      "precio": "200$ C/U",
+      "precio": 200,
       "descripcion": "Sandias enteras de excelente calidad",
       "imagen": "/WebProductos/ImagenesProductos/Sandias.jpg",
       "alt": "Sandias",
@@ -56,7 +56,7 @@ const productos = [
     },
     {
         "nombre": "Agua Mineral",
-        "precio": "150$",
+        "precio": 150,
         "descripcion": "Botella de agua mineral de 2 litros, sin gas",
         "imagen": "/WebProductos/ImagenesProductos/agua.jpg",
         "alt": "Botella de agua mineral",
@@ -149,29 +149,148 @@ const productos = [
         productList.innerHTML = card;
     };
 
-input.addEventListener("input", filtrarProductos)
+input.addEventListener("input", filtrarProductos);
 
 
+//Dropdown
+ const dropdown_button = document.getElementById("dropdown_button");
+ const dropdownMenu = document.getElementsByClassName("dropdown")[0];
 
-/* <div class="card" >
-                        <div class="car-image">
-                            <figure class="image is-4by3">
-                                <img 
-                                src="/WebProductos/ImagenesProductos/CocaColaBotella.jpg" 
-                                alt="Botella de Coca Cola"    
-                                draggable="false"                           
-                                >
-                            </figure>
+
+ dropdown_button.addEventListener("click", () => {
+    dropdownMenu.classList.toggle('is-active');
+ });
+
+
+ //Filtrado Default
+ const buttonDefault = document.getElementById("boton_default");
+
+ const productosFiltradosDefault = () => {
+    let card = "";
+        productos.forEach((f) => {
+                card += `<div class="card" >
+                    <div class="car-image">
+                        <figure class="image is-4by3">
+                            <img 
+                            src="${f.imagen}"
+                            alt=${f.alt}
+                            draggable="false"                           
+                            >
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-5 titulo_producto">${f.nombre}</p>
+                        <p class="subtitle">${f.precio}</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            ${f.descripcion}
                         </div>
-                        <div class="media-content">
-                            <p class="title is-5 titulo_producto">Coca Cola</p>
-                            <p class="subtitle">240$</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            ${f.categoria}
                         </div>
-                        <div class="card-content">
-                            <div class="content">
-                                Botella de coca cola de 3 litros, ideal para compartir en familia
-                            </div>
+                    </div>
+                </div> `
+            productList.innerHTML = card;
+        });
+ }
+ 
+ buttonDefault.addEventListener("click", productosFiltradosDefault);
+ //Filtrado MenorPrecio
+
+ const buttonMenorPrecio = document.getElementById("boton_menor_precio");
+
+ const productosFiltradosMenorPrecio = () => {
+    let card = "";
+
+     const listaConPrecios = productos.map((e) => {
+        return e.precio
+     });
+
+     const listaConPreciosOrdenados = listaConPrecios.sort(function(a, b) {return a - b});
+
+     listaConPreciosOrdenados.forEach((e) => {
+        productos.forEach((f) => {
+            if(e == f.precio) {
+                card += `<div class="card" >
+                    <div class="car-image">
+                        <figure class="image is-4by3">
+                            <img 
+                            src="${f.imagen}"
+                            alt=${f.alt}
+                            draggable="false"                           
+                            >
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-5 titulo_producto">${f.nombre}</p>
+                        <p class="subtitle">${f.precio}</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            ${f.descripcion}
                         </div>
-                    </div> 
-                    
-                    */
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            ${f.categoria}
+                        </div>
+                    </div>
+                </div> `
+            }
+            productList.innerHTML = card;
+        });
+     });
+ }
+
+ buttonMenorPrecio.addEventListener("click", productosFiltradosMenorPrecio); 
+
+ //Filtrado mayorPrecio
+
+ const buttonMayorPrecio = document.getElementById("boton_mayor_precio");
+
+ const filtradoMayorPrecio = () => {
+    let card = "";
+
+    const listaConPrecios = productos.map((e) => {
+       return e.precio
+    });
+
+    const listaConPreciosOrdenados = listaConPrecios.sort(function(a, b) {return b - a});
+
+    listaConPreciosOrdenados.forEach((e) => {
+       productos.forEach((f) => {
+           if(e == f.precio) {
+               card += `<div class="card" >
+                   <div class="car-image">
+                       <figure class="image is-4by3">
+                           <img 
+                           src="${f.imagen}"
+                           alt=${f.alt}
+                           draggable="false"                           
+                           >
+                       </figure>
+                   </div>
+                   <div class="media-content">
+                       <p class="title is-5 titulo_producto">${f.nombre}</p>
+                       <p class="subtitle">${f.precio}</p>
+                   </div>
+                   <div class="card-content">
+                       <div class="content">
+                           ${f.descripcion}
+                       </div>
+                   </div>
+                   <div class="card-content">
+                       <div class="content">
+                           ${f.categoria}
+                       </div>
+                   </div>
+               </div> `
+           }
+           productList.innerHTML = card;
+       });
+    });
+ }
+ buttonMayorPrecio.addEventListener("click", filtradoMayorPrecio);
