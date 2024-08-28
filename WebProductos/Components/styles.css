@@ -1,6 +1,6 @@
 /* Estilo general */
 html {
-    background-color: #f4f4f4;
+    background-color: #fbef9c;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -57,12 +57,17 @@ html {
     max-width: 25rem;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 4px solid #F08626;
+    overflow: hidden;
 }
 
 /* Imagen de la tarjeta */
 .car-image {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 0; /* El borde redondeado se aplicará con la tarjeta, no con la imagen */
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
 /* Estilos para títulos y subtítulos dentro de la tarjeta */
@@ -71,6 +76,7 @@ html {
     background-color: #FFE3C9;
     color: #000000;
     border-radius: 15px;
+    padding-top: 5px;
 }
 
 /* Estilo para títulos dentro de las tarjetas */

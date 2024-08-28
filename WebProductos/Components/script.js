@@ -61,11 +61,52 @@ const productos = [
         "imagen": "/WebProductos/ImagenesProductos/agua.jpg",
         "alt": "Botella de agua mineral",
         "categoria": "Bebidas"
+      },
+      {
+        "nombre": "Cerveza",
+        "precio": 650,
+        "descripcion": "Lata de cerveza de 1 litro, ideal para compartir en familia",
+        "imagen": "/WebProductos/ImagenesProductos/cerveza.jpg",
+        "alt": "Lata de cerveza",
+        "categoria": "Bebidas"
+      },
+      {
+        "nombre": "Vino",
+        "precio": 1300,
+        "descripcion": "Botella de vino de 1 litro, ideal para compartir en familia",
+        "imagen": "/WebProductos/ImagenesProductos/vino.jpg",
+        "alt": "Botella de vino",
+        "categoria": "Bebidas"
+      },
+      {
+        "nombre": "Mandarinas",
+        "precio": 50,
+        "descripcion": "Mandarinas de excelente calidad",
+        "imagen": "/WebProductos/ImagenesProductos/mandarina.jpg",
+        "alt": "Mandarinas",
+        "categoria": "Frutas"
+      },
+      {
+        "nombre": "Milannesa de pollo",
+        "precio": 500,
+        "descripcion": "Milanesa de pollo de 1 kilo, ideal para compartir en familia",
+        "imagen": "/WebProductos/ImagenesProductos/milanesa.jpg",
+        "alt": "Milanesa de pollo",
+        "categoria": "Carnes"
+      },
+      {
+        "nombre": "Bananas",
+        "precio": 70,
+        "descripcion": "Bananas de excelente calidad",
+        "imagen": "/WebProductos/ImagenesProductos/bananas.jpg",
+        "alt": "Bananas",
+        "categoria": "Frutas"
       }
   ];
 
   const showProducts = productos.forEach((e) => {
     let card = "";
+    if (e.categoria != "Frutas") {
      card += `<div class="card" >
                     <div class="car-image">
                         <figure class="image is-4by3">
@@ -78,7 +119,8 @@ const productos = [
                     </div>
                     <div class="media-content">
                         <p class="title is-5 titulo_producto">${e.nombre}</p>
-                        <p class="subtitle">${e.precio}</p>
+                        <p class="subtitle">$${e.precio}</p>
+                        
                     </div>
                     <div class="card-content">
                         <div class="content">
@@ -93,7 +135,37 @@ const productos = [
                 </div> `
                 productList.innerHTML += card;
             }
-            
+        if (e.categoria == "Frutas") {
+            card += `<div class="card" >
+                    <div class="car-image">
+                        <figure class="image is-4by3">
+                            <img 
+                            src="${e.imagen}"
+                            alt=${e.alt}
+                            draggable="false"                           
+                            >
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-5 titulo_producto">${e.nombre}</p>
+                        <p class="subtitle">$${e.precio} por kilo</p>
+                        
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            ${e.descripcion}
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            ${e.categoria}
+                        </div>
+                    </div>
+                </div> `
+                productList.innerHTML += card;
+            }
+        }
+
         );
 
         document.addEventListener("DOMContentLoaded", () => {
