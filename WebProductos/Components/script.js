@@ -101,6 +101,14 @@ const productos = [
         "imagen": "/WebProductos/ImagenesProductos/bananas.jpg",
         "alt": "Bananas",
         "categoria": "Frutas"
+      },
+      {
+        "nombre": "Limones",
+        "precio": "30$ Kilo",
+        "descripcion": "Limones de excelente calidad",
+        "imagen": "/WebProductos/ImagenesProductos/limones.jpg",
+        "alt": "Limones",
+        "categoria": "Frutas"
       }
   ];
 
