@@ -5,6 +5,7 @@ const input = document.getElementById("searchInput");
 const cards = document.getElementsByClassName("card");
 const productList = document.getElementById("productList");
 
+//JSON de productos
 const productos = [
     {
       "nombre": "Coca Cola",
@@ -64,9 +65,12 @@ const productos = [
       }
   ];
 
-  const showProducts = productos.forEach((e) => {
+  //Función para crear las cartas de los productos.
+
+  const createCard = (e) => {
     let card = "";
-     card += `<div class="card" >
+
+    card += `<div class="card" >
                     <div class="car-image">
                         <figure class="image is-4by3">
                             <img 
@@ -78,7 +82,7 @@ const productos = [
                     </div>
                     <div class="media-content">
                         <p class="title is-5 titulo_producto">${e.nombre}</p>
-                        <p class="subtitle">${e.precio}</p>
+                        <p class="subtitle">$${e.precio}</p>
                     </div>
                     <div class="card-content">
                         <div class="content">
@@ -91,68 +95,58 @@ const productos = [
                         </div>
                     </div>
                 </div> `
-                productList.innerHTML += card;
+        productList.innerHTML += card;
+  };
+
+  //Mostrar los productos al inicio.
+  let category = [];
+
+    const showProducts = () => { 
+        productos.forEach((e) => {
+
+            if (!category.includes(e.categoria)) {
+                category.push(e.categoria);
             }
+
+            createCard(e);
+
+            }); 
             
-        );
+            createDropdownItemsCategory(category);
+    }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            showProducts
-        });
+    document.addEventListener("DOMContentLoaded", () => {
+        showProducts();
+
+    });
 
 
-    //cards es una HTML collection, un tipo de "array" que no es "real"(no tiene los metodos tipicos de arrays), que esta cargado en el html
-    //Con el metodo Array.from() convertimos ese "array" en un array real, para asi ir iterando sobre el
+    //Filtrar productos según el input de búsqueda.
 
-    const filtrarProductos = () => {
+    const filterProducts = () => {
         const valorInput = input.value.toLowerCase();
 
         //Primero filtramos los productos que coinciden con el valor del input
         
         const productosFiltrados = productos.filter((e) => {
             const tituloProducto = e.nombre.toLowerCase();
+            console.log(tituloProducto.includes(valorInput));
             return tituloProducto.includes(valorInput);
         });
-        let card = "";
+        
         if(productosFiltrados.length > 0) {
+            productList.innerHTML = "";
             productosFiltrados.forEach((e) => {
-                card += `<div class="card" >
-                    <div class="car-image">
-                        <figure class="image is-4by3">
-                            <img 
-                            src="${e.imagen}"
-                            alt=${e.alt}
-                            draggable="false"                           
-                            >
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <p class="title is-5 titulo_producto">${e.nombre}</p>
-                        <p class="subtitle">${e.precio}</p>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            ${e.descripcion}
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            ${e.categoria}
-                        </div>
-                    </div>
-                </div> `
-            
+                createCard(e);
         });
-        } else {
-            card = `<p> No se han encontrado productos </p> `
-        }
-        productList.innerHTML = card;
+        } 
     };
 
-input.addEventListener("input", filtrarProductos);
+    input.addEventListener("input", filterProducts);
 
 
-//Dropdown
+//Dropdown de filtros.
+
  const dropdown_button = document.getElementById("dropdown_button");
  const dropdownMenu = document.getElementsByClassName("dropdown")[0];
 
@@ -161,88 +155,30 @@ input.addEventListener("input", filtrarProductos);
     dropdownMenu.classList.toggle('is-active');
  });
 
-
  //Filtrado Default
  const buttonDefault = document.getElementById("boton_default");
 
  const productosFiltradosDefault = () => {
-    let card = "";
+        productList.innerHTML = "";
         productos.forEach((f) => {
-                card += `<div class="card" >
-                    <div class="car-image">
-                        <figure class="image is-4by3">
-                            <img 
-                            src="${f.imagen}"
-                            alt=${f.alt}
-                            draggable="false"                           
-                            >
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <p class="title is-5 titulo_producto">${f.nombre}</p>
-                        <p class="subtitle">${f.precio}</p>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            ${f.descripcion}
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            ${f.categoria}
-                        </div>
-                    </div>
-                </div> `
-            productList.innerHTML = card;
+            createCard(f);
         });
  }
  
  buttonDefault.addEventListener("click", productosFiltradosDefault);
+ 
  //Filtrado MenorPrecio
-
  const buttonMenorPrecio = document.getElementById("boton_menor_precio");
 
  const productosFiltradosMenorPrecio = () => {
-    let card = "";
 
-     const listaConPrecios = productos.map((e) => {
-        return e.precio
-     });
-
-     const listaConPreciosOrdenados = listaConPrecios.sort(function(a, b) {return a - b});
-
-     listaConPreciosOrdenados.forEach((e) => {
-        productos.forEach((f) => {
-            if(e == f.precio) {
-                card += `<div class="card" >
-                    <div class="car-image">
-                        <figure class="image is-4by3">
-                            <img 
-                            src="${f.imagen}"
-                            alt=${f.alt}
-                            draggable="false"                           
-                            >
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <p class="title is-5 titulo_producto">${f.nombre}</p>
-                        <p class="subtitle">${f.precio}</p>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            ${f.descripcion}
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            ${f.categoria}
-                        </div>
-                    </div>
-                </div> `
-            }
-            productList.innerHTML = card;
-        });
-     });
+    productList.innerHTML = "";
+    const sortedProducts = productos.sort((a, b) => a.precio - b.precio);
+    
+    sortedProducts.forEach((e) => {
+        createCard(e);
+    });
+  
  }
 
  buttonMenorPrecio.addEventListener("click", productosFiltradosMenorPrecio); 
@@ -252,45 +188,53 @@ input.addEventListener("input", filtrarProductos);
  const buttonMayorPrecio = document.getElementById("boton_mayor_precio");
 
  const filtradoMayorPrecio = () => {
-    let card = "";
+    productList.innerHTML = "";
 
-    const listaConPrecios = productos.map((e) => {
-       return e.precio
-    });
+    const sortedProducts = productos.sort((a, b) => b.precio - a.precio);
 
-    const listaConPreciosOrdenados = listaConPrecios.sort(function(a, b) {return b - a});
-
-    listaConPreciosOrdenados.forEach((e) => {
-       productos.forEach((f) => {
-           if(e == f.precio) {
-               card += `<div class="card" >
-                   <div class="car-image">
-                       <figure class="image is-4by3">
-                           <img 
-                           src="${f.imagen}"
-                           alt=${f.alt}
-                           draggable="false"                           
-                           >
-                       </figure>
-                   </div>
-                   <div class="media-content">
-                       <p class="title is-5 titulo_producto">${f.nombre}</p>
-                       <p class="subtitle">${f.precio}</p>
-                   </div>
-                   <div class="card-content">
-                       <div class="content">
-                           ${f.descripcion}
-                       </div>
-                   </div>
-                   <div class="card-content">
-                       <div class="content">
-                           ${f.categoria}
-                       </div>
-                   </div>
-               </div> `
-           }
-           productList.innerHTML = card;
-       });
+    sortedProducts.forEach((e) => {
+        createCard(e);
     });
  }
+
  buttonMayorPrecio.addEventListener("click", filtradoMayorPrecio);
+
+//Dropdown categorías dinámico.
+
+const dropdown_button_category = document.getElementById("dropdown_button_category");
+const dropdownMenuCategory = document.getElementsByClassName("dropdown")[1];
+
+const createDropdownItemsCategory = (categories) => {
+    const dropdownContentCat = document.getElementById('dropdown-content-category');
+    dropdownContentCat.innerHTML = '';
+
+    categories.forEach(categoria => {
+        const a = document.createElement('a');
+        a.className = 'dropdown-item';
+        a.id = `categoria_${categoria.toLowerCase()}`;	
+        a.textContent = categoria;
+
+        dropdownContentCat.appendChild(a);
+    });
+}
+
+dropdown_button_category.addEventListener("click", () => {
+    dropdownMenuCategory.classList.toggle('is-active');
+    category.forEach(categoria => {
+        createAction(`categoria_${categoria.toLowerCase()}`);
+    });
+});
+
+//Función para crear la acción de los items del dropdown de categorías.
+const createAction = (dropdownId) => {
+    const dropdownItem = document.getElementById(dropdownId);
+    
+    dropdownItem.addEventListener('click', () => {
+        const category = dropdownItem.textContent;
+        productList.innerHTML = '';
+        const filteredProducts = productos.filter(product => product.categoria === category);
+        filteredProducts.forEach(product => {
+            createCard(product);
+        });
+    });
+}
