@@ -62,6 +62,54 @@ const productos = [
         "imagen": "/WebProductos/ImagenesProductos/agua.jpg",
         "alt": "Botella de agua mineral",
         "categoria": "Bebidas"
+      },
+      {
+        "nombre": "Cerveza",
+        "precio": 650,
+        "descripcion": "Lata de cerveza de 1 litro, ideal para compartir en familia",
+        "imagen": "/WebProductos/ImagenesProductos/cerveza.jpg",
+        "alt": "Lata de cerveza",
+        "categoria": "Bebidas"
+      },
+      {
+        "nombre": "Vino",
+        "precio": 1300,
+        "descripcion": "Botella de vino de 1 litro, ideal para compartir en familia",
+        "imagen": "/WebProductos/ImagenesProductos/vino.jpg",
+        "alt": "Botella de vino",
+        "categoria": "Bebidas"
+      },
+      {
+        "nombre": "Mandarinas",
+        "precio": 50,
+        "descripcion": "Mandarinas de excelente calidad",
+        "imagen": "/WebProductos/ImagenesProductos/mandarina.jpg",
+        "alt": "Mandarinas",
+        "categoria": "Frutas"
+      },
+      {
+        "nombre": "Milannesa de pollo",
+        "precio": 500,
+        "descripcion": "Milanesa de pollo de 1 kilo, ideal para compartir en familia",
+        "imagen": "/WebProductos/ImagenesProductos/milanesa.jpg",
+        "alt": "Milanesa de pollo",
+        "categoria": "Carnes"
+      },
+      {
+        "nombre": "Bananas",
+        "precio": 70,
+        "descripcion": "Bananas de excelente calidad",
+        "imagen": "/WebProductos/ImagenesProductos/bananas.jpg",
+        "alt": "Bananas",
+        "categoria": "Frutas"
+      },
+      {
+        "nombre": "Limones",
+        "precio": "30$ Kilo",
+        "descripcion": "Limones de excelente calidad",
+        "imagen": "/WebProductos/ImagenesProductos/limones.jpg",
+        "alt": "Limones",
+        "categoria": "Frutas"
       }
   ];
 
