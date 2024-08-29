@@ -146,6 +146,10 @@ const productos = [
         productList.innerHTML += card;
   };
 
+const cleanProductList = () => {
+    productList.innerHTML = "";
+ }
+
   //Mostrar los productos al inicio.
   let category = [];
 
@@ -182,7 +186,7 @@ const filterProducts = () => {
         });
         
         if(productosFiltrados.length > 0) {
-            productList.innerHTML = "";
+            cleanProductList();
             productosFiltrados.forEach((e) => {
                 createCard(e);
         });
@@ -209,10 +213,13 @@ input.addEventListener("input", filterProducts);
  const buttonDefault = document.getElementById("boton_default");
 
  const productosFiltradosDefault = () => {
-        productList.innerHTML = "";
-        productos.forEach((f) => {
-            createCard(f);
-        });
+    
+    cleanProductList();
+
+    productos.forEach((f) => {
+        console.log(f);
+        createCard(f);
+    });
  }
  
  buttonDefault.addEventListener("click", productosFiltradosDefault);
@@ -222,8 +229,10 @@ input.addEventListener("input", filterProducts);
 
  const productosFiltradosMenorPrecio = () => {
 
-    productList.innerHTML = "";
-    const sortedProducts = productos.sort((a, b) => a.precio - b.precio);
+    cleanProductList();
+
+    //Slice para no modificar el array original.
+    const sortedProducts = productos.slice().sort((a, b) => a.precio - b.precio);
     
     sortedProducts.forEach((e) => {
         createCard(e);
@@ -238,9 +247,10 @@ input.addEventListener("input", filterProducts);
  const buttonMayorPrecio = document.getElementById("boton_mayor_precio");
 
  const filtradoMayorPrecio = () => {
-    productList.innerHTML = "";
+    cleanProductList();
 
-    const sortedProducts = productos.sort((a, b) => b.precio - a.precio);
+    //Slice para no modificar el array original.
+    const sortedProducts = productos.slice().sort((a, b) => b.precio - a.precio);
 
     sortedProducts.forEach((e) => {
         createCard(e);

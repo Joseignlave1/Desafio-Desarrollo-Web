@@ -103,7 +103,7 @@ html {
     align-items: center;
 }
 
-#dropdown_button {
+#dropdown_button, #dropdown_button_category {
     background-color: #FFE3C9;
     color: #000000;
     border: 2px solid #F08626;
