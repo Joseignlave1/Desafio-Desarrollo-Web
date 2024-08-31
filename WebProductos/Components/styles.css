@@ -128,8 +128,8 @@ html {
 }
 
 /* Botones del filtro */
-#dropdown_button {
-    background-color: #cbf3f0;
+#dropdown_button, #dropdown_button_category {
+    background-color: #FFE3C9;
     color: #000000;
     border: 2px solid #2ec4b6;
     border-radius: 15px;
