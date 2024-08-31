@@ -103,7 +103,7 @@ html {
     align-items: center;
 }
 
-#dropdown_button, #dropdown_button_category {
+#dropdown_button, #dropdown_button_category, #open_Modal_Button{
     background-color: #FFE3C9;
     color: #000000;
     border: 2px solid #F08626;
@@ -120,6 +120,54 @@ html {
 }
 #boton_mayor_precio:hover {
     background-color: #F08626;
+}
+
+.textarea {
+    resize: none;
+}
+
+.modal_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-file__action input {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	display: none;
+}
+.form-file__result {
+    cursor: pointer;
+	position: relative;
+	width: 100%;
+    height: 20rem;
+	border-radius: 8px;
+	border: 1px solid #609dd6;
+}
+.form-file__result::after {
+    content: "Haz click en el campo de texto o arrastra la imagen";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #609dd6;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.form-file__result img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.form-file__result.image-uploaded::after {
+    content: "";
 }
 /* Media Queries */
 @media (max-width: 768px) {
