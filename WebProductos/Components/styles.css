@@ -1,6 +1,6 @@
 /* Estilo general */
 html {
-    background-color: #fbef9c;
+    background-color: #eaeaea;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,7 +12,7 @@ html {
     font-size: 3em;
     color: #ffffff;
     text-align: center;
-    background-color: #F08626;
+    background-color: #2ec4b6;
     padding: 15px 20px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
@@ -26,54 +26,78 @@ html {
 
 /* Input de búsqueda */
 #searchInput {
-    background-color: #FFE3C9;
+    background-color: #cbf3f0;
     color: #000000;
-    border: 2px solid #F08626;
+    border: 2px solid #2ec4b6;
     border-radius: 15px;
     width: 30rem;
     height: 2rem;
     margin-top: 1rem;
     padding: 0 10px;
+    transition: border-color 0.3s ease;
 }
+
 #searchInput::placeholder {
     color: gray;
+}
+
+#searchInput:hover {
+    border-color: #F08626; /* Cambia el color del borde al color #F08626 */
 }
 
 
 /* Lista de productos */
 #productList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1rem;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem; /* Aumenta el espacio entre tarjetas */
+    padding: 2rem; /* Añade un relleno alrededor de la lista */
+    background-color: #eaeaea; /* Fondo acorde al tema general */
+    border-radius: 15px; /* Bordes redondeados para todo el contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    margin: 0 auto; /* Centrar la lista */
+    max-width: 1200px; /* Limitar el ancho máximo para mayor control */
 }
 
 /* Tarjeta de producto */
 .card {
-    background-color: #FFE3C9;
+    background-color: #cbf3f0;
     height: auto;
     width: 100%;
     max-width: 25rem;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    border: 4px solid #F08626;
+    border: 4px solid #2ec4b6;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    border-color: #F08626; /* Cambia el color del borde al color #F08626 */
 }
 
 /* Imagen de la tarjeta */
-.car-image {
+.card-image {
     width: 100%;
     border-radius: 0; /* El borde redondeado se aplicará con la tarjeta, no con la imagen */
     display: block;
     margin: 0;
     padding: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    border-color: #F08626; /* Cambia el color del borde al color #F08626 */
 }
 
 /* Estilos para títulos y subtítulos dentro de la tarjeta */
 .title, .subtitle, .media-content, .card-content, .content {
     text-align: center;
-    background-color: #FFE3C9;
+    background-color: #cbf3f0;
     color: #000000;
     border-radius: 15px;
     padding-top: 5px;
@@ -81,12 +105,12 @@ html {
 
 /* Estilo para títulos dentro de las tarjetas */
 .titulo_producto {
-    color: #F08626;
+    color: #ff9f1c;
 }
 
 /* Estilo para el subtítulo dentro de las tarjetas */
 .subtitle {
-    color: #009688;
+    color: #2f4858;
 }
 
 /* Estilo para imágenes redondeadas */
@@ -103,24 +127,95 @@ html {
     align-items: center;
 }
 
+/* Botones del filtro */
 #dropdown_button, #dropdown_button_category {
     background-color: #FFE3C9;
     color: #000000;
-    border: 2px solid #F08626;
+    border: 2px solid #2ec4b6;
     border-radius: 15px;
     height: 2rem;
     margin-left: 3rem;
+    padding: 0 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 6px rgba(167, 83, 83, 0.2);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#boton_default:hover {
-    background-color: #F08626;
+#dropdown_button:hover {
+    background-color: #2ec4b6;
+    border-color: #F08626;
+    color: #ffffff;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
 }
+
+
+#dropdown_button i {
+    font-size: 1.2rem;
+    color: #F08626;
+}
+
+#boton_default:hover, #boton_menor_precio:hover, #boton_mayor_precio:hover {
+    background-color: #2ec4b6;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-color: #F08626;
+}
+
+/* Específico para cada botón si se desea variar el color */
 #boton_menor_precio:hover {
-    background-color: #2d2721;
+    background-color: #2ec4b6;
 }
-#boton_mayor_precio:hover {
+
+/* Estilo para el contenido del menú desplegable */
+.dropdown-menu {
+    background-color: #cbf3f0;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2ec4b6;
+    overflow: hidden;
+}
+
+/* Estilo para los elementos dentro del menú desplegable */
+.dropdown-item {
+    color: #000000;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
     background-color: #F08626;
 }
+
+.dropdown-item:hover {
+    background-color: #F08626;
+    color: #ffffff;
+}
+
+/* Elemento activo (opcional) */
+.dropdown-item.is-active {
+    background-color: #F08626;
+    color: #ffffff;
+}
+
+/* Bordes redondeados para el primer y último elemento */
+.dropdown-content  {
+    background-color: #2ec4b6;
+}
+/* Bordes redondeados para el primer y último elemento */
+.dropdown-content .dropdown-item:first-child {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.dropdown-content .dropdown-item:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.dropdown-menu.dropdown-menu{
+    background-color: #2ec4b6;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     #titulo_almacen {
