@@ -325,6 +325,11 @@ html {
     color: #000000; /* Color negro para el placeholder para mejor visibilidad */
     opacity: 1; /* Asegura que el color sea completamente opaco */
 }
+/* Títulos de los inputs (labels) en el formulario */
+#form_crear_productos .label {
+    color: #000000; /* Color negro para los títulos de los inputs */
+    font-weight: bold; /* Opción adicional para hacer el texto en negrita */
+}
 /* Media Queries */
 /* Estilos para pantallas con un ancho máximo de 768px */
 @media (max-width: 768px) {
