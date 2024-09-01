@@ -153,11 +153,15 @@ html {
     font-size: 1.2rem; /* Tamaño del icono */
     color: #F08626; /* Color del icono */
 }
+#boton_default, #boton_menor_precio, #boton_mayor_precio{
+    background-color: #2ec4b6; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+}
 
 /* Estilos al pasar el mouse sobre los botones del menú desplegable */
 #boton_default:hover, #boton_menor_precio:hover, #boton_mayor_precio:hover {
-    background-color: #2ec4b6; /* Cambia el color de fondo al pasar el mouse */
-    color: #ffffff; /* Cambia el color del texto al pasar el mouse */
+    background-color: #ffffff; /* Cambia el color de fondo al pasar el mouse */
+    color: black; /* Cambia el color del texto al pasar el mouse */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra ligera */
     border-color: #F08626; /* Cambia el color del borde al pasar el mouse */
 }
@@ -330,6 +334,7 @@ html {
     color: #000000; /* Color negro para los títulos de los inputs */
     font-weight: bold; /* Opción adicional para hacer el texto en negrita */
 }
+
 /* Media Queries */
 /* Estilos para pantallas con un ancho máximo de 768px */
 @media (max-width: 768px) {
@@ -369,4 +374,5 @@ html {
     .card {
         margin-bottom: 1rem; /* Espaciado inferior */
     }
+
 }
