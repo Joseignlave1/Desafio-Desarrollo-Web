@@ -126,7 +126,7 @@ html {
 }
 
 /* Botones del filtro */
-#dropdown_button, #dropdown_button_category {
+#dropdown_button, #dropdown_button_category,#open_Modal_Button {
     background-color: #FFE3C9; /* Color de fondo */
     color: #000000; /* Color del texto */
     border: 2px solid #2ec4b6; /* Borde con color */
@@ -330,9 +330,15 @@ html {
     opacity: 1; /* Asegura que el color sea completamente opaco */
 }
 /* Títulos de los inputs (labels) en el formulario */
-#form_crear_productos .label {
+#form_crear_productos .label, #title_modal{
     color: #000000; /* Color negro para los títulos de los inputs */
     font-weight: bold; /* Opción adicional para hacer el texto en negrita */
+}
+.modal-card-body, .modal-card-foot{
+    background-color: #ffffff !important;
+}
+#cancel_Modal_Button{
+    background-color: #F08626;
 }
 
 /* Media Queries */
