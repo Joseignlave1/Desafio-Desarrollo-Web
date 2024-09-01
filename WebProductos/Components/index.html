@@ -121,6 +121,26 @@
             </div>
         </div>    
     </div>
+    <!-- Modal para ver detalles del producto -->
+    <div id="productModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title" id="modal-product-name">Product Name</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <figure class="image is-4by3">
+                    <img id="modal-product-image" src="" alt="Product Image">
+                </figure>
+                <p id="modal-product-description">Product Description</p>
+                <p id="modal-product-price" class="is-size-4 has-text-weight-bold">$0</p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button" id="modal-close-button">Close</button>
+            </footer>
+        </div>
+    </div>
 </body>
 
 </html>
