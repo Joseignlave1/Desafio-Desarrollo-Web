@@ -268,7 +268,7 @@ html {
 .dropdown-menu.dropdown-menu{
     background-color: #2ec4b6;
 }
-
+}
 
 /* Media Queries */
 @media (max-width: 768px) {
@@ -301,5 +301,4 @@ html {
     .card {
         margin-bottom: 1rem;
     }
-}
 }
