@@ -129,7 +129,7 @@ html {
 
 
 #dropdown_button, #dropdown_button_category, #open_Modal_Button{
-=======
+
 /* Botones del filtro */
 #dropdown_button, #dropdown_button_category {
 
@@ -243,7 +243,7 @@ html {
 .form-file__result.image-uploaded::after {
     content: "";
 }
-=======
+
 /* Elemento activo (opcional) */
 .dropdown-item.is-active {
     background-color: #F08626;
@@ -301,4 +301,5 @@ html {
     .card {
         margin-bottom: 1rem;
     }
+}
 }
