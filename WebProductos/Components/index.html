@@ -61,41 +61,44 @@
                             <div class="modal_container">
                                 <h3 id="title_modal">Crear Producto</h3>
                             </div>
-                            <div class="field" id="form_crear_productos">
-                                <label class="label">Nombre</label>
-                                <div class="control">
-                                  <input class="input" type="text" placeholder="Nombre del producto" id="input_nombre">
-                                </div>
-                              </div>
-                              <div class="field">
-                                <label class="label">Precio</label>
-                                <div class="control">
-                                  <input class="input" type="text" placeholder="Precio del Producto" id="input_precio">
-                                </div>
-                              </div>
-                              <div class="field">
-                                <label class="label">Descripcion</label>
-                                <div class="control">
-                                    <textarea class="textarea" placeholder="Descripcion del Producto" id="descripcion_input"></textarea>
-                                </div>
-                              </div>
-                              <!--Imagen, upload y drag and drop-->
-                              <div class="form-file">
-                                <div class="form-file__action">
-                                    <labe for="image" class="label">Imagen</label>
-                                    <input type="file" name="image" id="image" />
-                                </div> 
 
-                                <div class="form-file__result" id="result-image">
-                                    <img id="img-result" alt="">
-                                </div>
-                              </div>
-                              <div class="field">
-                                <label class="label">Categoria</label>
-                                <div class="control">
-                                  <input class="input" type="text" placeholder="Categoria del producto" id="input_categoria">
-                                </div>
-                              </div>
+                            <form action="" id="form_crear_productos">
+                                <div class="field">
+                                    <label class="label">Nombre</label>
+                                    <div class="control">
+                                      <input class="input" type="text" placeholder="Nombre del producto" id="input_nombre">
+                                    </div>
+                                  </div>
+                                  <div class="field">
+                                    <label class="label">Precio</label>
+                                    <div class="control">
+                                      <input class="input" type="number" placeholder="Precio del Producto" id="input_precio">
+                                    </div>
+                                  </div>
+                                  <div class="field">
+                                    <label class="label">Descripcion</label>
+                                    <div class="control">
+                                        <textarea class="textarea" placeholder="Descripcion del Producto" id="descripcion_input"></textarea>
+                                    </div>
+                                  </div>
+                                  <!--Imagen, upload y drag and drop-->
+                                  <div class="form-file">
+                                    <div class="form-file__action">
+                                        <label for="image" class="label">Imagen</label>
+                                        <input type="file" name="image" id="image" />
+                                    </div> 
+    
+                                    <div class="form-file__result" id="result-image">
+                                        <img id="img-result" alt="">
+                                    </div>
+                                  </div>
+                                  <div class="field">
+                                    <label class="label">Categoria</label>
+                                    <div class="control">
+                                      <input class="input" type="text" placeholder="Categoria del producto" id="input_categoria">
+                                    </div>
+                                  </div>
+                            </form>
                         </section>
                           <footer class="modal-card-foot">
                             <div class="buttons">

@@ -1,20 +1,6 @@
-// Filtrado
-const input = document.getElementById("searchInput");
+//Creen los productos porfa, y borren este comment despues, los productos se crean desde la UI, simplemente le dan al boton de Crear Producto
 
-// Cards de los productos
-const cards = document.getElementsByClassName("card");
-const productList = document.getElementById("productList");
-
-const cleanProductList = () => {
-    productList.innerHTML = "";
- }
-
- const noProductosMessage = () => {
-  productList.innerHTML = "No se encontraron productos";
- }
-
-
-  //Cargar los productos desde el local storage
+//Cargar los productos desde el local storage
   const loadProductosOnLocalStorage = () => {
     const saveProducts = localStorage.getItem("products");
     return saveProducts ? JSON.parse(saveProducts) : [];
@@ -23,18 +9,36 @@ const cleanProductList = () => {
   //Lista de productos cargados dinamicamente en el localStorage
   let products = loadProductosOnLocalStorage();
   
-   //Guardar los productos en el LocalStorage para que no se pierdan al hacer refresh en la pagina
+  //Guardar los productos en el LocalStorage para que no se pierdan al hacer refresh en la pagina
    const saveProductsOnLocalStorage = () => {
     localStorage.setItem("products", JSON.stringify(products));
   }
 
-    //Crear producto al darle click al boton guardar
 
-const button_crear_producto = document.getElementById("button_crear_producto");
+const create_product_button = document.getElementById("button_crear_producto");
 const nombre_producto = document.getElementById("input_nombre");
 const precioProducto = document.getElementById("input_precio");
 const descripcion_producto = document.getElementById("descripcion_input");
 const categoria = document.getElementById("input_categoria");
+
+const dontAcceptNumbers = (event) => {
+  const keyCode = event.keyCode ? event.keyCode : event.which;
+
+  //Permitimos las teclas espacio, tab y las flechitas
+
+  if(keyCode === 8 || keyCode === 9 || (keyCode >= 37 && keyCode <= 40)) {
+    return;
+  }
+
+  //Prevenimos los numeros, del 0 al 9
+
+  if(keyCode >= 48 && keyCode <= 57) {
+    event.preventDefault();
+  }
+}
+nombre_producto.addEventListener("keydown", dontAcceptNumbers);
+descripcion_producto.addEventListener("keydown", dontAcceptNumbers);
+categoria.addEventListener("keydown", dontAcceptNumbers);
 
 const crearURLDinamica = (file, callback) => {
   let fr  = new FileReader();
@@ -43,7 +47,11 @@ const crearURLDinamica = (file, callback) => {
     callback(fr.result);
   });
 }
-const crearProducto = () => {
+let category = [];
+
+//Crear producto al darle click al boton guardar
+
+const createProduct = () => {
   crearURLDinamica(fileInput.files[0], (urlImagen) => {
     const nuevoProducto = {
       "nombre": nombre_producto.value,
@@ -60,10 +68,59 @@ const crearProducto = () => {
       category.push(nuevoProducto.categoria);
       createDropdownItemsCategory(category);
   }
-  })
+  document.getElementById("form_crear_productos").reset();
+  document.getElementById("img-result").style.display = "none";
+  document.getElementById("result-image").classList.remove("image-uploaded");
+  });
 }
 
-const limpiarProductos = () => {
+create_product_button.addEventListener("click", createProduct);
+//Imagen crear producto(upload dandole click y drag and drop)
+
+const fileInput = document.getElementById("image");
+const dropZone = document.getElementById("result-image");
+const img = document.getElementById("img-result");
+
+dropZone.addEventListener("click", () => fileInput.click());
+
+dropZone.addEventListener("dragover", (e) =>  {
+  e.preventDefault();
+  dropZone.classList.add("form-file__result--active");
+});
+
+dropZone.addEventListener("dragleave", (e) => {
+  e.preventDefault();
+  dropZone.classList.remove("form-file__result--active");
+});
+
+const uploadImage = (file) => {
+  const fileReader = new FileReader();
+  fileReader.readAsDataURL(file);
+
+  fileReader.addEventListener("load", (e) => {
+    img.setAttribute("src", e.target.result);
+  });
+}
+
+dropZone.addEventListener("drop", (e) =>  {
+  e.preventDefault();
+  fileInput.files = e.dataTransfer.files;
+  const file = fileInput.files[0];
+  uploadImage(file);
+  dropZone.classList.add("image-uploaded");
+});
+
+fileInput.addEventListener("change", (e) => {
+  const file = fileInput.files[0];
+  uploadImage(file);
+  dropZone.classList.add("image-uploaded");
+});
+
+
+
+//Funcion para limpiar el array de productos y el array de categorias del Local Storage
+
+const cleanProductsAndCategoryArray = () => {
   products = []; 
   saveProductsOnLocalStorage();
   cleanProductList(); 
@@ -72,30 +129,38 @@ const limpiarProductos = () => {
   createDropdownItemsCategory(category); 
 };
 
-button_crear_producto.addEventListener("click", crearProducto);
 
 //Modal
 const openModalButton = document.getElementById("open_Modal_Button");
 const closeModalButton = document.getElementById("close_Modal_Button");
 const cancelModalButton = document.getElementById("cancel_Modal_Button");
 const productModal = document.getElementById("product_Modal");
-const saveModal = document.getElementById("button_crear_producto");
+
 openModalButton.addEventListener("click", () => {
   productModal.classList.add("is-active")
-
 });
 
 cancelModalButton.addEventListener("click", () => {
   productModal.classList.remove("is-active");
 });
-saveModal.addEventListener("click", () => {
+create_product_button.addEventListener("click", () => {
   productModal.classList.remove("is-active");
-})
-
-let category = [];
+});
 
 
-//Función para crear las cartas de los productos.
+
+// Cards de los productos
+const productList = document.getElementById("productList");
+
+const cleanProductList = () => {
+    productList.innerHTML = "";
+ }
+
+ const noProductosMessage = () => {
+  productList.innerHTML = "No se encontraron productos";
+ }
+
+ //Función para crear las cartas de los productos.
 
 const createCard = (e) => {
  let card = "";
@@ -140,50 +205,9 @@ document.addEventListener("DOMContentLoaded", () => {
  createDropdownItemsCategory(category);
 });
 
-
-  //Imagen crear producto(upload dandole click y drag and drop)
-const fileInput = document.getElementById("image");
-const dropZone = document.getElementById("result-image");
-const img = document.getElementById("img-result");
-
-dropZone.addEventListener("click", () => fileInput.click());
-
-dropZone.addEventListener("dragover", (e) =>  {
-  e.preventDefault();
-  dropZone.classList.add("form-file__result--active");
-});
-
-dropZone.addEventListener("dragleave", (e) => {
-  e.preventDefault();
-  dropZone.classList.remove("form-file__result--active");
-});
-
-const uploadImage = (file) => {
-  const fileReader = new FileReader();
-  fileReader.readAsDataURL(file);
-
-  fileReader.addEventListener("load", (e) => {
-    img.setAttribute("src", e.target.result);
-  });
-}
-
-dropZone.addEventListener("drop", (e) =>  {
-  e.preventDefault();
-  fileInput.files = e.dataTransfer.files;
-  const file = fileInput.files[0];
-  uploadImage(file);
-  dropZone.classList.add("image-uploaded");
-});
-
-fileInput.addEventListener("change", (e) => {
-  const file = fileInput.files[0];
-  uploadImage(file);
-  dropZone.classList.add("image-uploaded");
-});
-
-
-
 //Filtrar productos según el input de búsqueda.
+
+const input = document.getElementById("searchInput");
 
 const filterProducts = () => {
     const valorInput = input.value.toLowerCase();
@@ -209,7 +233,6 @@ input.addEventListener("input", filterProducts);
 
 
 //Dropdown de filtros.
-
 
  const dropdown_button = document.getElementById("dropdown_button");
  const dropdownMenu = document.getElementsByClassName("dropdown")[0];
@@ -303,9 +326,10 @@ const createAction = (dropdownId) => {
     dropdownItem.addEventListener('click', () => {
         const category = dropdownItem.textContent;
         productList.innerHTML = '';
-        const filteredProducts = products.filter(product => product.categoria === category);
-        filteredProducts.forEach(product => {
+        const filteredProducts = products.filter((product) => product.categoria === category);
+        filteredProducts.forEach((product) => {
             createCard(product);
         });
     });
 }
+
