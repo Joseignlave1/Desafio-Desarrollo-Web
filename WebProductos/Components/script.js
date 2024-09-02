@@ -1,98 +1,176 @@
+
+import { addDragEventToCard } from "./cart.js";
+
+// Filtrado
+const input = document.getElementById("searchInput");
+
+// Cards de los productos
+const cards = document.getElementsByClassName("card");
+const productList = document.getElementById("productList");
+
 // Lista estática de productos
 //JSON de productos
 const productos = [
-  {
-    "nombre": "Coca Cola",
-    "precio": 240,
-    "descripcion": "Botella de coca cola de 3 litros, ideal para compartir en familia",
-    "imagen": "/WebProductos/ImagenesProductos/CocaColaBotella.jpg",
-    "categoria": "Bebidas"
-  },
-  {
-    "nombre": "Churrascos",
-    "precio": 800,
-    "descripcion": "120g 3 Unidades de churrascos, ideal para los asados en familia",
-    "imagen": "/WebProductos/ImagenesProductos/Churrascos.jpg",
-    "categoria": "Carnes"
-  },
-  {
-    "nombre": "Dulce De Leche",
-    "precio": 1200,
-    "descripcion": "Dulce de leche La Serenisima importado Argentino",
-    "imagen": "/WebProductos/ImagenesProductos/DulceDeLeche.jpg",
-    "categoria": "Dulces"
-  },
-  {
-    "nombre": "Manzanas Rojas",
-    "precio": 89,
-    "descripcion": "Manzanas Rojas de excelente calidad",
-    "imagen": "/WebProductos/ImagenesProductos/ManzanasRojas.jpg",
-    "categoria": "Frutas"
-  },
-  {
-    "nombre": "Peras",
-    "precio": 100,
-    "descripcion": "Peras de excelente calidad",
-    "imagen": "/WebProductos/ImagenesProductos/Peras.jpg",
-    "categoria": "Frutas"
-  },
-  {
-    "nombre": "Sandias",
-    "precio": 200,
-    "descripcion": "Sandias enteras de excelente calidad",
-    "imagen": "/WebProductos/ImagenesProductos/Sandias.jpg",
-    "categoria": "Frutas"
-  },
-  {
-      "nombre": "Agua Mineral",
-      "precio": 150,
-      "descripcion": "Botella de agua mineral de 2 litros, sin gas",
-      "imagen": "/WebProductos/ImagenesProductos/agua.jpg",
+    {
+      "id": "1",
+      "nombre": "Coca Cola",
+      "precio": 240,
+      "descripcion": "Botella de coca cola de 3 litros, ideal para compartir en familia",
+      "imagen": "/WebProductos/ImagenesProductos/CocaColaBotella.jpg",
+      "alt": "Botella de Coca Cola",
       "categoria": "Bebidas"
     },
     {
-      "nombre": "Cerveza",
-      "precio": 650,
-      "descripcion": "Lata de cerveza de 1 litro, ideal para compartir en familia",
-      "imagen": "/WebProductos/ImagenesProductos/cerveza.jpg",
-      "categoria": "Bebidas"
-    },
-    {
-      "nombre": "Vino",
-      "precio": 1300,
-      "descripcion": "Botella de vino de 1 litro, ideal para compartir en familia",
-      "imagen": "/WebProductos/ImagenesProductos/vino.jpg",
-      "categoria": "Bebidas"
-    },
-    {
-      "nombre": "Mandarinas",
-      "precio": 50,
-      "descripcion": "Mandarinas de excelente calidad",
-      "imagen": "/WebProductos/ImagenesProductos/mandarina.jpg",
-      "categoria": "Frutas"
-    },
-    {
-      "nombre": "Milannesa de pollo",
-      "precio": 500,
-      "descripcion": "Milanesa de pollo de 1 kilo, ideal para compartir en familia",
-      "imagen": "/WebProductos/ImagenesProductos/milanesa.jpg",
+      "id": "2",
+      "nombre": "Churrascos",
+      "precio": 800,
+      "descripcion": "120g 3 Unidades de churrascos, ideal para los asados en familia",
+      "imagen": "/WebProductos/ImagenesProductos/Churrascos.jpg",
+      "alt": "120g, 3 unidades de churrascos en bolsa",
       "categoria": "Carnes"
     },
     {
-      "nombre": "Bananas",
-      "precio": 70,
-      "descripcion": "Bananas de excelente calidad",
-      "imagen": "/WebProductos/ImagenesProductos/bananas.jpg",
+      "id": "3",
+      "nombre": "Dulce De Leche",
+      "precio": 1200,
+      "descripcion": "Dulce de leche La Serenisima importado Argentino",
+      "imagen": "/WebProductos/ImagenesProductos/DulceDeLeche.jpg",
+      "alt": "Dulce de leche La Serenisima importado Argentino",
+      "categoria": "Dulces"
+    },
+    {
+      "id": "4",
+      "nombre": "Manzanas Rojas",
+      "precio": 89,
+      "descripcion": "Manzanas Rojas de excelente calidad",
+      "imagen": "/WebProductos/ImagenesProductos/ManzanasRojas.jpg",
+      "alt": "Manzanas Rojas",
       "categoria": "Frutas"
     },
     {
-      "nombre": "Limones",
-      "precio": 30,
-      "descripcion": "Limones de excelente calidad",
-      "imagen": "/WebProductos/ImagenesProductos/limones.jpg",
+      "id": "5",
+      "nombre": "Peras",
+      "precio": 100,
+      "descripcion": "Peras de excelente calidad",
+      "imagen": "/WebProductos/ImagenesProductos/Peras.jpg",
+      "alt": "Peras",
       "categoria": "Frutas"
-    }
-];
+    },
+    {
+      "id": "6",
+      "nombre": "Sandias",
+      "precio": 200,
+      "descripcion": "Sandias enteras de excelente calidad",
+      "imagen": "/WebProductos/ImagenesProductos/Sandias.jpg",
+      "alt": "Sandias",
+      "categoria": "Frutas"
+    },
+    {
+        "id": "7",
+        "nombre": "Agua Mineral",
+        "precio": 150,
+        "descripcion": "Botella de agua mineral de 2 litros, sin gas",
+        "imagen": "/WebProductos/ImagenesProductos/agua.jpg",
+        "alt": "Botella de agua mineral",
+        "categoria": "Bebidas"
+      },
+      {
+        "id": "8",
+        "nombre": "Cerveza",
+        "precio": 650,
+        "descripcion": "Lata de cerveza de 1 litro, ideal para compartir en familia",
+        "imagen": "/WebProductos/ImagenesProductos/cerveza.jpg",
+        "alt": "Lata de cerveza",
+        "categoria": "Bebidas"
+      },
+      {
+        "id": "9",
+        "nombre": "Vino",
+        "precio": 1300,
+        "descripcion": "Botella de vino de 1 litro, ideal para compartir en familia",
+        "imagen": "/WebProductos/ImagenesProductos/vino.jpg",
+        "alt": "Botella de vino",
+        "categoria": "Bebidas"
+      },
+      {
+        "id": "10",
+        "nombre": "Mandarinas",
+        "precio": 50,
+        "descripcion": "Mandarinas de excelente calidad",
+        "imagen": "/WebProductos/ImagenesProductos/mandarina.jpg",
+        "alt": "Mandarinas",
+        "categoria": "Frutas"
+      },
+      {
+        "id": "11",
+        "nombre": "Milannesa de pollo",
+        "precio": 500,
+        "descripcion": "Milanesa de pollo de 1 kilo, ideal para compartir en familia",
+        "imagen": "/WebProductos/ImagenesProductos/milanesa.jpg",
+        "alt": "Milanesa de pollo",
+        "categoria": "Carnes"
+      },
+      {
+        "id": "12",
+        "nombre": "Bananas",
+        "precio": 70,
+        "descripcion": "Bananas de excelente calidad",
+        "imagen": "/WebProductos/ImagenesProductos/bananas.jpg",
+        "alt": "Bananas",
+        "categoria": "Frutas"
+      },
+      {
+        "id": "13",
+        "nombre": "Limones",
+        "precio": "30$ Kilo",
+        "descripcion": "Limones de excelente calidad",
+        "imagen": "/WebProductos/ImagenesProductos/limones.jpg",
+        "alt": "Limones",
+        "categoria": "Frutas"
+      }
+  ];
+
+  //Función para crear las cartas de los productos.
+
+  const createCard = (e) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.draggable = true; // Hacer la tarjeta arrastrable
+    card.id = e.id;
+
+    // Añadir contenido a la tarjeta
+    card.innerHTML = `
+        <div class="car-image">
+            <figure class="image is-4by3">
+                <img 
+                src="${e.imagen}"
+                alt="${e.alt}"
+                draggable="false">
+            </figure>
+        </div>
+        <div class="media-content">
+            <p class="title is-5 titulo_producto">${e.nombre}</p>
+            <p class="subtitle">$${e.precio}</p>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                ${e.descripcion}
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                ${e.categoria}
+            </div>
+        </div>
+    `;
+
+    // Agregar la tarjeta al contenedor de productos
+    document.getElementById('productList').appendChild(card);
+
+    // Agregar el evento dragstart a la tarjeta creada
+    addDragEventToCard(card);
+  };
+
 
 // Cargar los productos desde el local storage
 const loadProductosOnLocalStorage = () => {
