@@ -71,6 +71,7 @@ body.shifted {
     padding: 2rem; /* Añade un relleno alrededor de la lista */
     background-color: #eaeaea; /* Fondo acorde al tema general */
     border-radius: 15px; /* Bordes redondeados para todo el contenedor */
+}
 
 #productList {
     display: grid; /* Usa un grid layout */
@@ -350,7 +351,7 @@ body.shifted {
     border: 2px solid black;
     border-radius: 15px;
     height: 4rem;
-    margin-left: 5rem;
+    margin-left: 2rem;
     padding: 0 20px;
     display: flex;
     align-items: center;
@@ -536,6 +537,4 @@ footer {
 
 #modal-close-button:hover {
     background-color: #f08626; 
-}
-
-    
+}    
