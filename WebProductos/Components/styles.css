@@ -334,13 +334,6 @@ html {
     color: #000000; /* Color negro para los títulos de los inputs */
     font-weight: bold; /* Opción adicional para hacer el texto en negrita */
 }
-.modal-card-body, .modal-card-foot{
-    background-color: #ffffff !important;
-}
-#cancel_Modal_Button{
-    background-color: #F08626;
-}
-
 /* Media Queries */
 /* Estilos para pantallas con un ancho máximo de 768px */
 @media (max-width: 768px) {
