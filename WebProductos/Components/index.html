@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>El Almacen de Tito</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" type="module"></script>
+    <script src="cart.js" type="module"></script>
 </head>
 
 <body>
@@ -19,44 +20,66 @@
                     <div class="control">
                         <input id="searchInput" class="input" type="text" placeholder="Ingrese nombre del producto">
                     </div>
-                    
                 </div>
                  <!--Dropdown Filtros-->
-                    <div class="dropdown">
-                        <div class="dropdown-trigger">
-                            <button class="button" id="dropdown_button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <span>Filtrar Productos</span>
-                            </button>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content">
-                                <a  class="dropdown-item " id="boton_default">Default</a>
-                                <a  class="dropdown-item" id="boton_menor_precio">Menor precio</a>
-                                <a  class="dropdown-item" id="boton_mayor_precio">Mayor precio</a>
-                            </div>
+                <div class="dropdown">
+                    <div class="dropdown-trigger">
+                        <button class="button" id="dropdown_button" aria-haspopup="true" aria-controls="dropdown-menu">
+                            <span>Filtrar Productos</span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            <a  class="dropdown-item " id="boton_default">Default</a>
+                            <a  class="dropdown-item" id="boton_menor_precio">Menor precio</a>
+                            <a  class="dropdown-item" id="boton_mayor_precio">Mayor precio</a>
                         </div>
                     </div>
+                </div>
 
-                    <!--Dropdown Categorías-->
-                    <div class="dropdown">
-                        <div class="dropdown-trigger">
-                            <button class="button" id="dropdown_button_category" aria-haspopup="true" aria-controls="dropdown-menu-categorias">
-                                <span>Filtrar por Categoría</span>
-                            </button>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu-category" role="menu">
-                            <div class="dropdown-content" id="dropdown-content-category">
-                                <!-- Aquí se añadirán las categorías dinámicamente -->
-                            </div>
+                <!--Dropdown Categorías-->
+                <div class="dropdown">
+                    <div class="dropdown-trigger">
+                        <button class="button" id="dropdown_button_category" aria-haspopup="true" aria-controls="dropdown-menu-categorias">
+                            <span>Filtrar por Categoría</span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu-category" role="menu">
+                        <div class="dropdown-content" id="dropdown-content-category">
+                            <!-- Aquí se añadirán las categorías dinámicamente -->
                         </div>
                     </div>
+                </div>
+
+                <!-- Carrito de compras -->
+                <button class="btnCart" id="btnCart">
+                    <img src="\WebProductos\OtrasImagenes\shopping-cart.png" width="40px">
+                </button>
             </div>
         </div>
         
         <div class="productos">
             <div id="productList" class="columns is-multiline">
-
                 <!-- Productos se mostrarán aquí -->
+            </div>
+            <div id="productsCart" class="hidden">
+                <h1 class="title" id="titulo_carrito">Carrito de compras</h1>
+                <div id="cartList">
+                    <!-- Productos del carrito se mostrarán aquí -->
+                </div>
+                <div id="priceCart">
+                    <p class="title is-4">Total: <span id="totalCart"></span></p>
+                </div>
+                <footer id="footerCart">
+                    <div class="columns">
+                        <div class="column">
+                            <button class="button is-primary" id="btnBuy">Comprar</button>
+                        </div>
+                        <div class="column">
+                            <button class="button is-danger" id="btnEmpty">Vaciar</button>
+                        </div>
+                    </div>
+                </footer>
             </div>
             <div id="noResults" class="has-text-centered is-hidden">
                 <p class="title">Producto no encontrado</p>

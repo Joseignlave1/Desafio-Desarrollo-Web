@@ -6,6 +6,10 @@ html {
     box-sizing: border-box;
 }
 
+body.shifted {
+    margin-right: 300px; /* Mueve toda la página hacia la izquierda igual al ancho del carrito */
+}
+
 /* Título */
 #titulo_almacen {
     font-family: 'Arial', sans-serif;
@@ -22,7 +26,20 @@ html {
     font-weight: bold;
 }
 
+#titulo_carrito {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+    background-color: #2ec4b6;
+}
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 /* Input de búsqueda */
 #searchInput {
@@ -47,7 +64,7 @@ html {
 
 
 /* Lista de productos */
-#productList {
+#productList, #cartList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem; /* Aumenta el espacio entre tarjetas */
@@ -144,7 +161,7 @@ html {
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#dropdown_button:hover {
+#dropdown_button:hover , #dropdown_button_category:hover {
     background-color: #2ec4b6;
     border-color: #F08626;
     color: #ffffff;
@@ -214,6 +231,72 @@ html {
 
 .dropdown-menu.dropdown-menu{
     background-color: #2ec4b6;
+}
+
+/* Estilo para el botón del carrito */
+
+.btnCart {
+    background-color: #F08626;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 4rem;
+    margin-left: 5rem;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btnCart:hover {
+    background-color: #2ec4b6;
+    border-color: black;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+#productsCart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f8f8f8;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido esté en columna */
+}
+
+#cartList {
+    flex: 1; /* Ocupa todo el espacio disponible entre el título y el footer */
+    margin: 1rem;
+    overflow-y: auto; /* Habilita el scroll si hay muchos productos */
+}
+
+/* Estilo para el precio */
+#priceCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    border-top: 2px solid #ddd; /* Línea superior de color gris claro */
+    padding: 0.5rem 0; /* Espaciado arriba y abajo */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#productsCart.hidden {
+    transform: translateX(100%); /* Oculta el carrito */
+}
+
+#productsCart:not(.hidden) {
+    transform: translateX(0); /* Muestra el carrito */
 }
 
 /* Media Queries */

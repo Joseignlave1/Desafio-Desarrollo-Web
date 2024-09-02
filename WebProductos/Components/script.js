@@ -1,3 +1,5 @@
+import { addDragEventToCard } from "./cart.js";
+
 // Filtrado
 const input = document.getElementById("searchInput");
 
@@ -8,6 +10,7 @@ const productList = document.getElementById("productList");
 //JSON de productos
 const productos = [
     {
+      "id": "1",
       "nombre": "Coca Cola",
       "precio": 240,
       "descripcion": "Botella de coca cola de 3 litros, ideal para compartir en familia",
@@ -16,6 +19,7 @@ const productos = [
       "categoria": "Bebidas"
     },
     {
+      "id": "2",
       "nombre": "Churrascos",
       "precio": 800,
       "descripcion": "120g 3 Unidades de churrascos, ideal para los asados en familia",
@@ -24,6 +28,7 @@ const productos = [
       "categoria": "Carnes"
     },
     {
+      "id": "3",
       "nombre": "Dulce De Leche",
       "precio": 1200,
       "descripcion": "Dulce de leche La Serenisima importado Argentino",
@@ -32,6 +37,7 @@ const productos = [
       "categoria": "Dulces"
     },
     {
+      "id": "4",
       "nombre": "Manzanas Rojas",
       "precio": 89,
       "descripcion": "Manzanas Rojas de excelente calidad",
@@ -40,6 +46,7 @@ const productos = [
       "categoria": "Frutas"
     },
     {
+      "id": "5",
       "nombre": "Peras",
       "precio": 100,
       "descripcion": "Peras de excelente calidad",
@@ -48,6 +55,7 @@ const productos = [
       "categoria": "Frutas"
     },
     {
+      "id": "6",
       "nombre": "Sandias",
       "precio": 200,
       "descripcion": "Sandias enteras de excelente calidad",
@@ -56,6 +64,7 @@ const productos = [
       "categoria": "Frutas"
     },
     {
+        "id": "7",
         "nombre": "Agua Mineral",
         "precio": 150,
         "descripcion": "Botella de agua mineral de 2 litros, sin gas",
@@ -64,6 +73,7 @@ const productos = [
         "categoria": "Bebidas"
       },
       {
+        "id": "8",
         "nombre": "Cerveza",
         "precio": 650,
         "descripcion": "Lata de cerveza de 1 litro, ideal para compartir en familia",
@@ -72,6 +82,7 @@ const productos = [
         "categoria": "Bebidas"
       },
       {
+        "id": "9",
         "nombre": "Vino",
         "precio": 1300,
         "descripcion": "Botella de vino de 1 litro, ideal para compartir en familia",
@@ -80,6 +91,7 @@ const productos = [
         "categoria": "Bebidas"
       },
       {
+        "id": "10",
         "nombre": "Mandarinas",
         "precio": 50,
         "descripcion": "Mandarinas de excelente calidad",
@@ -88,6 +100,7 @@ const productos = [
         "categoria": "Frutas"
       },
       {
+        "id": "11",
         "nombre": "Milannesa de pollo",
         "precio": 500,
         "descripcion": "Milanesa de pollo de 1 kilo, ideal para compartir en familia",
@@ -96,6 +109,7 @@ const productos = [
         "categoria": "Carnes"
       },
       {
+        "id": "12",
         "nombre": "Bananas",
         "precio": 70,
         "descripcion": "Bananas de excelente calidad",
@@ -104,6 +118,7 @@ const productos = [
         "categoria": "Frutas"
       },
       {
+        "id": "13",
         "nombre": "Limones",
         "precio": "30$ Kilo",
         "descripcion": "Limones de excelente calidad",
@@ -116,34 +131,42 @@ const productos = [
   //Función para crear las cartas de los productos.
 
   const createCard = (e) => {
-    let card = "";
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.draggable = true; // Hacer la tarjeta arrastrable
+    card.id = e.id;
 
-    card += `<div class="card" >
-                    <div class="car-image">
-                        <figure class="image is-4by3">
-                            <img 
-                            src="${e.imagen}"
-                            alt=${e.alt}
-                            draggable="false"                           
-                            >
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <p class="title is-5 titulo_producto">${e.nombre}</p>
-                        <p class="subtitle">$${e.precio}</p>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            ${e.descripcion}
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            ${e.categoria}
-                        </div>
-                    </div>
-                </div> `
-        productList.innerHTML += card;
+    // Añadir contenido a la tarjeta
+    card.innerHTML = `
+        <div class="car-image">
+            <figure class="image is-4by3">
+                <img 
+                src="${e.imagen}"
+                alt="${e.alt}"
+                draggable="false">
+            </figure>
+        </div>
+        <div class="media-content">
+            <p class="title is-5 titulo_producto">${e.nombre}</p>
+            <p class="subtitle">$${e.precio}</p>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                ${e.descripcion}
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                ${e.categoria}
+            </div>
+        </div>
+    `;
+
+    // Agregar la tarjeta al contenedor de productos
+    document.getElementById('productList').appendChild(card);
+
+    // Agregar el evento dragstart a la tarjeta creada
+    addDragEventToCard(card);
   };
 
 const cleanProductList = () => {
