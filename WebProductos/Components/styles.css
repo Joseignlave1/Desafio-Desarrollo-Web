@@ -1,306 +1,386 @@
 /* Estilo general */
 html {
-    background-color: #eaeaea;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    background-color: #eaeaea; /* Color de fondo para toda la página */
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 0; /* Elimina el padding predeterminado */
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el tamaño total de los elementos */
 }
 
 /* Título */
 #titulo_almacen {
-    font-family: 'Arial', sans-serif;
-    font-size: 3em;
-    color: #ffffff;
-    text-align: center;
-    background-color: #2ec4b6;
-    padding: 15px 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    margin: 20px auto;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: bold;
+    font-family: 'Arial', sans-serif; /* Fuente del título */
+    font-size: 3em; /* Tamaño del texto */
+    color: #ffffff; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    background-color: #2ec4b6; /* Color de fondo */
+    padding: 15px 20px; /* Espaciado interno */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    margin: 20px auto; /* Espaciado externo y centra el elemento */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: 1.5px; /* Espaciado entre letras */
+    font-weight: bold; /* Texto en negrita */
 }
-
-
 
 /* Input de búsqueda */
 #searchInput {
-    background-color: #cbf3f0;
-    color: #000000;
-    border: 2px solid #2ec4b6;
-    border-radius: 15px;
-    width: 30rem;
-    height: 2rem;
-    margin-top: 1rem;
-    padding: 0 10px;
-    transition: border-color 0.3s ease;
+    background-color: #cbf3f0; /* Color de fondo del input */
+    color: #000000; /* Color del texto */
+    border: 2px solid #2ec4b6; /* Borde con color */
+    border-radius: 15px; /* Bordes redondeados */
+    width: 30rem; /* Ancho del input */
+    height: 2rem; /* Altura del input */
+    margin-top: 1rem; /* Espaciado superior */
+    padding: 0 10px; /* Espaciado interno */
+    transition: border-color 0.3s ease; /* Transición suave para el color del borde */
 }
 
 #searchInput::placeholder {
-    color: gray;
+    color: gray; /* Color del texto placeholder */
 }
 
 #searchInput:hover {
-    border-color: #F08626; /* Cambia el color del borde al color #F08626 */
+    border-color: #F08626; /* Cambia el color del borde al color #F08626 al pasar el mouse */
 }
-
 
 /* Lista de productos */
 #productList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem; /* Aumenta el espacio entre tarjetas */
-    padding: 2rem; /* Añade un relleno alrededor de la lista */
-    background-color: #eaeaea; /* Fondo acorde al tema general */
-    border-radius: 15px; /* Bordes redondeados para todo el contenedor */
+    display: grid; /* Usa un grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas flexibles según el espacio disponible */
+    gap: 2rem; /* Espacio entre las tarjetas */
+    padding: 2rem; /* Espaciado interno */
+    background-color: #eaeaea; /* Color de fondo */
+    border-radius: 15px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-    margin: 0 auto; /* Centrar la lista */
-    max-width: 1200px; /* Limitar el ancho máximo para mayor control */
+    margin: 0 auto; /* Centra el contenedor */
+    max-width: 1200px; /* Ancho máximo del contenedor */
 }
 
 /* Tarjeta de producto */
 .card {
-    background-color: #cbf3f0;
-    height: auto;
-    width: 100%;
-    max-width: 25rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    border: 4px solid #2ec4b6;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background-color: #cbf3f0; /* Color de fondo de la tarjeta */
+    height: auto; /* Altura automática según el contenido */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 25rem; /* Ancho máximo de la tarjeta */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    border: 4px solid #2ec4b6; /* Borde con color */
+    overflow: hidden; /* Oculta contenido desbordante */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transiciones suaves para transformaciones, sombra y color del borde */
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
-    border-color: #F08626; /* Cambia el color del borde al color #F08626 */
+    transform: scale(1.05); /* Agranda la tarjeta al pasar el mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); /* Sombra más intensa al pasar el mouse */
+    border-color: #F08626; /* Cambia el color del borde al color #F08626 al pasar el mouse */
 }
 
 /* Imagen de la tarjeta */
 .card-image {
-    width: 100%;
-    border-radius: 0; /* El borde redondeado se aplicará con la tarjeta, no con la imagen */
-    display: block;
-    margin: 0;
-    padding: 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    border-radius: 0; /* No aplica bordes redondeados a la imagen */
+    display: block; /* La imagen se muestra como bloque */
+    margin: 0; /* Elimina el margen */
+    padding: 0; /* Elimina el padding */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transiciones suaves para transformaciones, sombra y color del borde */
 }
 
 .card-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
-    border-color: #F08626; /* Cambia el color del borde al color #F08626 */
+    transform: scale(1.05); /* Agranda la imagen al pasar el mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); /* Sombra más intensa al pasar el mouse */
+    border-color: #F08626; /* Cambia el color del borde al color #F08626 al pasar el mouse */
 }
 
 /* Estilos para títulos y subtítulos dentro de la tarjeta */
 .title, .subtitle, .media-content, .card-content, .content {
-    text-align: center;
-    background-color: #cbf3f0;
-    color: #000000;
-    border-radius: 15px;
-    padding-top: 5px;
+    text-align: center; /* Centra el texto */
+    background-color: #cbf3f0; /* Color de fondo */
+    color: #000000; /* Color del texto */
+    border-radius: 15px; /* Bordes redondeados */
+    padding-top: 5px; /* Espaciado superior */
 }
 
 /* Estilo para títulos dentro de las tarjetas */
 .titulo_producto {
-    color: #ff9f1c;
+    color: #ff9f1c; /* Color del título */
 }
 
 /* Estilo para el subtítulo dentro de las tarjetas */
 .subtitle {
-    color: #2f4858;
+    color: #2f4858; /* Color del subtítulo */
 }
 
 /* Estilo para imágenes redondeadas */
 .is-rounded {
-    border-radius: 15px !important;
-    display: block;
-    margin: 0 auto;
-    padding: 10px;
-    width: calc(100% - 20px);
-    box-sizing: border-box;
+    border-radius: 15px !important; /* Bordes redondeados forzados */
+    display: block; /* Se muestra como bloque */
+    margin: 0 auto; /* Centra la imagen */
+    padding: 10px; /* Espaciado interno */
+    width: calc(100% - 20px); /* Ancho calculado para ajustarse al padding */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
 }
+
 .container_input_dropdown {
-    display: flex;
-    align-items: center;
+    display: flex; /* Flexbox para alinear elementos */
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
 }
-
-
-#dropdown_button, #dropdown_button_category, #open_Modal_Button{
 
 /* Botones del filtro */
-#dropdown_button, #dropdown_button_category {
-
-    background-color: #FFE3C9;
-    color: #000000;
-    border: 2px solid #2ec4b6;
-    border-radius: 15px;
-    height: 2rem;
-    margin-left: 3rem;
-    padding: 0 15px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 4px 6px rgba(167, 83, 83, 0.2);
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+#dropdown_button, #dropdown_button_category,#open_Modal_Button {
+    background-color: #FFE3C9; /* Color de fondo */
+    color: #000000; /* Color del texto */
+    border: 2px solid #2ec4b6; /* Borde con color */
+    border-radius: 15px; /* Bordes redondeados */
+    height: 2rem; /* Altura de los botones */
+    margin-left: 3rem; /* Margen izquierdo */
+    padding: 0 15px; /* Espaciado interno */
+    font-weight: bold; /* Texto en negrita */
+    display: flex; /* Flexbox para alinear contenido */
+    align-items: center; /* Alinea verticalmente el contenido en el centro */
+    gap: 0.5rem; /* Espaciado entre elementos internos */
+    box-shadow: 0 4px 6px rgba(167, 83, 83, 0.2); /* Sombra ligera */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves para cambios en el fondo, borde y sombra */
 }
 
 #dropdown_button:hover {
-    background-color: #2ec4b6;
-    border-color: #F08626;
-    color: #ffffff;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    background-color: #2ec4b6; /* Cambia el color de fondo al pasar el mouse */
+    border-color: #F08626; /* Cambia el color del borde al pasar el mouse */
+    color: #ffffff; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); /* Sombra más intensa al pasar el mouse */
 }
-
 
 #dropdown_button i {
-    font-size: 1.2rem;
-    color: #F08626;
+    font-size: 1.2rem; /* Tamaño del icono */
+    color: #F08626; /* Color del icono */
+}
+#boton_default, #boton_menor_precio, #boton_mayor_precio{
+    background-color: #2ec4b6; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
 }
 
+/* Estilos al pasar el mouse sobre los botones del menú desplegable */
 #boton_default:hover, #boton_menor_precio:hover, #boton_mayor_precio:hover {
-    background-color: #2ec4b6;
-    color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    border-color: #F08626;
-}
-
-/* Específico para cada botón si se desea variar el color */
-#boton_menor_precio:hover {
-    background-color: #2ec4b6;
+    background-color: #ffffff; /* Cambia el color de fondo al pasar el mouse */
+    color: black; /* Cambia el color del texto al pasar el mouse */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    border-color: #F08626; /* Cambia el color del borde al pasar el mouse */
 }
 
 /* Estilo para el contenido del menú desplegable */
 .dropdown-menu {
-    background-color: #cbf3f0;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    border: 2px solid #2ec4b6;
-    overflow: hidden;
+    background-color: #cbf3f0; /* Color de fondo suave que combina con la paleta general */
+    border-radius: 15px; /* Bordes redondeados para un look moderno y suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar profundidad */
+    border: 2px solid #2ec4b6; /* Borde que combina con otros elementos en la página */
+    overflow: hidden; /* Evita que el contenido se desborde más allá del contenedor */
 }
 
 /* Estilo para los elementos dentro del menú desplegable */
 .dropdown-item {
-    color: #000000;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    background-color: #F08626;
+    color: #000000; /* Color de texto negro para una buena legibilidad */
+    padding: 10px 20px; /* Espaciado interno adecuado para mejorar la accesibilidad */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves para mejorar la interacción */
+    background-color: #F08626; /* Color de fondo para elementos del menú */
 }
 
 .dropdown-item:hover {
-    background-color: #F08626;
-    color: #ffffff;
+    background-color: #F08626; /* Cambia el color de fondo al pasar el mouse, destacando el elemento */
+    color: #ffffff; /* Color del texto al pasar el mouse, proporcionando un buen contraste */
 }
 
-
+/* Estilo para evitar que el textarea se redimensione */
 .textarea {
-    resize: none;
+    resize: none; /* Desactiva la capacidad de redimensionar el textarea */
 }
 
+/* Contenedor del modal con centrado flexible */
 .modal_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Usa flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
 }
 
+/* Estilo para inputs de archivos dentro del formulario */
 .form-file__action input {
-	width: 0;
-	height: 0;
-	opacity: 0;
-	display: none;
+	width: 0; /* Esconde el input de archivo */
+	height: 0; /* Esconde el input de archivo */
+	opacity: 0; /* Lo hace invisible */
+	display: none; /* Lo remueve del flujo del documento */
 }
+
+/* Estilo para el contenedor del resultado de la subida del archivo */
 .form-file__result {
-    cursor: pointer;
-	position: relative;
-	width: 100%;
-    height: 20rem;
-	border-radius: 8px;
-	border: 1px solid #609dd6;
+    cursor: pointer; /* Indica que el elemento es clicable */
+	position: relative; /* Permite el uso de `position: absolute` en elementos hijos */
+	width: 100%; /* Ocupa todo el ancho disponible */
+    height: 20rem; /* Altura fija para el contenedor */
+	border-radius: 8px; /* Bordes redondeados */
+	border: 1px solid #609dd6; /* Borde que añade definición al contenedor */
 }
+
+/* Estilo para el mensaje de arrastrar/soltar o clic */
 .form-file__result::after {
-    content: "Haz click en el campo de texto o arrastra la imagen";
-	position: absolute;
+    content: "Haz click en el campo de texto o arrastra la imagen"; /* Mensaje para el usuario */
+	position: absolute; /* Posiciona el mensaje en el centro */
 	top: 0;
 	bottom: 0;
 	right: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
-	color: #609dd6;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	color: #609dd6; /* Color del texto */
+	display: flex; /* Flexbox para centrar el texto */
+	justify-content: center; /* Centra horizontalmente */
+	align-items: center; /* Centra verticalmente */
 }
+
+/* Estilo para las imágenes dentro del contenedor */
 .form-file__result img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+	width: 100%; /* Imagen ocupa todo el ancho del contenedor */
+	height: 100%; /* Imagen ocupa toda la altura del contenedor */
+	object-fit: cover; /* Asegura que la imagen cubra todo el espacio, manteniendo la proporción */
 }
 
+/* Esconde el texto al haber una imagen cargada */
 .form-file__result.image-uploaded::after {
-    content: "";
+    content: ""; /* Remueve el mensaje cuando una imagen es cargada */
 }
 
-/* Elemento activo (opcional) */
+/* Estilo para el elemento activo dentro del menú desplegable */
 .dropdown-item.is-active {
-    background-color: #F08626;
-    color: #ffffff;
+    background-color: #F08626; /* Color de fondo que coincide con el tema principal */
+    color: #ffffff; /* Color de texto blanco para buen contraste */
 }
 
-/* Bordes redondeados para el primer y último elemento */
-.dropdown-content  {
-    background-color: #2ec4b6;
+/* Estilo para la sección de contenido del menú desplegable */
+.dropdown-content {
+    background-color: #2ec4b6; /* Color de fondo que armoniza con la paleta general */
 }
-/* Bordes redondeados para el primer y último elemento */
+
+/* Bordes redondeados para el primer y último elemento del menú */
 .dropdown-content .dropdown-item:first-child {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 15px; /* Redondea la esquina superior izquierda */
+    border-top-right-radius: 15px; /* Redondea la esquina superior derecha */
 }
 
 .dropdown-content .dropdown-item:last-child {
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px; /* Redondea la esquina inferior izquierda */
+    border-bottom-right-radius: 15px; /* Redondea la esquina inferior derecha */
 }
 
-.dropdown-menu.dropdown-menu{
-    background-color: #2ec4b6;
+/* Estilo duplicado que establece un color de fondo para el menú desplegable */
+.dropdown-menu.dropdown-menu {
+    background-color: #2ec4b6; /* Color de fondo */
 }
+
+/* Estilo general para el formulario de creación de productos */
+#form_crear_productos {
+    background-color: #cbf3f0; /* Fondo suave acorde a la estética general */
+    border-radius: 15px; /* Bordes redondeados para un look amigable */
+    padding: 20px; /* Espaciado interno para mejorar la legibilidad y organización */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad y separar del fondo */
+    margin: 20px auto; /* Espaciado externo y centrado */
+    max-width: 600px; /* Ancho máximo para mantener consistencia visual */
+    border: 2px solid #2ec4b6; /* Borde similar a otros elementos, creando una cohesión en el diseño */
+}
+
+/* Estilo para los inputs del formulario */
+#form_crear_productos .input,
+#form_crear_productos .textarea {
+    background-color: #ffffff; /* Fondo blanco para los campos de entrada */
+    color: #000000; /* Color de texto negro para buena legibilidad */
+    border: 2px solid #2ec4b6; /* Borde similar a otros elementos, manteniendo consistencia */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno adecuado */
+    margin-bottom: 15px; /* Espaciado entre los campos de entrada */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para una sensación de profundidad */
+    transition: border-color 0.3s ease; /* Transición suave para cambios en el color del borde */
+}
+
+/* Cambia el color del borde al hacer hover */
+#form_crear_productos .input:hover,
+#form_crear_productos .textarea:hover {
+    border-color: #F08626; /* Cambia el color del borde al color #F08626 para una mejor interacción */
+}
+
+/* Estilo para los botones del formulario */
+#form_crear_productos .button {
+    background-color: #FFE3C9; /* Fondo en color acorde al tema */
+    color: #000000; /* Texto en negro para buena legibilidad */
+    border: 2px solid #2ec4b6; /* Borde acorde al estilo general */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno adecuado */
+    font-weight: bold; /* Texto en negrita */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves para mejorar la interacción */
+}
+
+/* Cambia el color de fondo y del borde al hacer hover */
+#form_crear_productos .button:hover {
+    background-color: #2ec4b6; /* Fondo al color principal para la acción de hover */
+    border-color: #F08626; /* Cambia el color del borde al color #F08626 */
+    color: black; /* Color del texto en blanco para mejor contraste */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); /* Sombra más intensa para resaltar el botón */
+}
+
+/* Placeholder en inputs y textarea */
+#form_crear_productos .input::placeholder,
+#form_crear_productos .textarea::placeholder {
+    color: #000000; /* Color negro para el placeholder para mejor visibilidad */
+    opacity: 1; /* Asegura que el color sea completamente opaco */
+}
+/* Títulos de los inputs (labels) en el formulario */
+#form_crear_productos .label, #title_modal{
+    color: #000000; /* Color negro para los títulos de los inputs */
+    font-weight: bold; /* Opción adicional para hacer el texto en negrita */
+}
+.modal-card-body, .modal-card-foot{
+    background-color: #ffffff !important;
+}
+#cancel_Modal_Button{
+    background-color: #F08626;
 }
 
 /* Media Queries */
+/* Estilos para pantallas con un ancho máximo de 768px */
 @media (max-width: 768px) {
+    /* Estilos para el título del almacén */
     #titulo_almacen {
-        font-size: 2em;
-        padding: 10px;
-        margin: 10px auto;
+        font-size: 2em; /* Tamaño del texto */
+        padding: 10px; /* Espaciado interno */
+        margin: 10px auto; /* Espaciado externo y centrado */
     }
 
+    /* Estilos para el input de búsqueda */
     #searchInput {
-        height: 1.5rem;
+        height: 1.5rem; /* Altura del input */
     }
 
+    /* Estilos para las tarjetas de producto */
     .card {
-        width: 100%;
-        max-width: none;
+        width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: none; /* Ancho máximo sin restricciones */
     }
 }
 
+/* Estilos para pantallas con un ancho máximo de 480px */
 @media (max-width: 480px) {
+    /* Estilos para el título del almacén */
     #titulo_almacen {
-        font-size: 1.5em;
-        padding: 5px;
+        font-size: 1.5em; /* Tamaño del texto */
+        padding: 5px; /* Espaciado interno */
     }
 
+    /* Estilos para el input de búsqueda */
     #searchInput {
-        height: 1.2rem;
+        height: 1.2rem; /* Altura del input */
     }
 
+    /* Estilos para las tarjetas de producto */
     .card {
-        margin-bottom: 1rem;
+        margin-bottom: 1rem; /* Espaciado inferior */
     }
+
 }
 
 /* Modificar el Modal */
