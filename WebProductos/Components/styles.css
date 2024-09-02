@@ -153,13 +153,13 @@ html {
     font-size: 1.2rem; /* Tamaño del icono */
     color: #F08626; /* Color del icono */
 }
-#boton_default, #boton_menor_precio, #boton_mayor_precio{
+#boton_default, #boton_menor_precio, #boton_mayor_precio, #categoria_bebidas, #categoria_carnes, #categoria_dulces, #categoria_frutas{
     background-color: #2ec4b6; /* Color de fondo */
     color: #ffffff; /* Color del texto */
 }
 
 /* Estilos al pasar el mouse sobre los botones del menú desplegable */
-#boton_default:hover, #boton_menor_precio:hover, #boton_mayor_precio:hover {
+#boton_default:hover, #boton_menor_precio:hover, #boton_mayor_precio:hover,#categoria_bebidas:hover ,#categoria_carnes:hover, #categoria_dulces:hover, #categoria_frutas:hover {
     background-color: #ffffff; /* Cambia el color de fondo al pasar el mouse */
     color: black; /* Cambia el color del texto al pasar el mouse */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra ligera */
