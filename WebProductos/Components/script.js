@@ -260,8 +260,8 @@ const noProductosMessage = () => {
 // Función para crear las cartas de los productos.
 const createCard = (e) => {
   let card = "";
-
-  card += `<div class="card" >
+  
+ card += `<div class="card product-card"" >
                  <div class="car-image">
                      <figure class="image is-4by3">
                          <img 
@@ -415,3 +415,47 @@ const createAction = (dropdownId) => {
     });
   });
 }
+
+//Modal de productos
+document.addEventListener('DOMContentLoaded', () => {
+  const productModal = document.getElementById('productModal'); 
+  const modalCloseButtons = document.querySelectorAll('.modal .delete, #modal-close-button');
+
+  // Función para abrir el modal y mostrar la información del producto
+  const openModal = (product) => {
+    document.getElementById('modal-product-name').textContent = product.nombre;
+    document.getElementById('modal-product-description').textContent = product.descripcion;
+    document.getElementById('modal-product-price').textContent = `$${product.precio}`;
+    document.getElementById('modal-product-image').src = product.imagen;
+
+    // Mostrar el modal
+    productModal.classList.add('is-active');
+  };
+
+  // Función para cerrar el modal
+  const closeModal = () => {
+    productModal.classList.remove('is-active');
+  };
+
+  // Agregar evento a los botones de cierre del modal
+  modalCloseButtons.forEach(button => {
+    button.addEventListener('click', closeModal);
+  });
+
+  // Capturar el clic en las tarjetas de productos
+  const productList = document.getElementById('productList');
+
+  productList.addEventListener('click', (event) => {
+    const card = event.target.closest('.product-card'); 
+    if (card) {   
+       const product = {
+        nombre: card.querySelector('.titulo_producto').textContent, 
+        descripcion: card.querySelector('.content').textContent, 
+        precio: card.querySelector('.subtitle').textContent.replace('$', ''), 
+        imagen: card.querySelector('img').src,
+      };
+      openModal(product);
+    }
+  });
+});
+
