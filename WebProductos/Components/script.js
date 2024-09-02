@@ -134,7 +134,7 @@ const productos = [
 
   const createCard = (e) => {
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'card product-card';
     card.draggable = true; // Hacer la tarjeta arrastrable
     card.id = e.id;
 
@@ -324,9 +324,6 @@ create_product_button.addEventListener("click", () => {
   productModal.classList.remove("is-active");
 });
 
-// Cards de los productos
-const productList = document.getElementById("productList");
-
 const cleanProductList = () => {
   productList.innerHTML = "";
 }
@@ -334,38 +331,6 @@ const cleanProductList = () => {
 const noProductosMessage = () => {
   productList.innerHTML = "No se encontraron productos";
 }
-
-// Función para crear las cartas de los productos.
-const createCard = (e) => {
- let card = "";
-
- card += `<div class="card product-card"" >
-                 <div class="car-image">
-                     <figure class="image is-4by3">
-                         <img 
-                         src="${e.imagen}"
-                         alt=""
-                         draggable="false"                           
-                         >
-                     </figure>
-                 </div>
-                 <div class="media-content">
-                     <p class="title is-5 titulo_producto">${e.nombre}</p>
-                     <p class="subtitle">$${e.precio}</p>
-                 </div>
-                 <div class="card-content">
-                     <div class="content">
-                         ${e.descripcion}
-                     </div>
-                 </div>
-                 <div class="card-content">
-                     <div class="content">
-                         ${e.categoria}
-                     </div>
-                 </div>
-             </div> `
-  productList.innerHTML += card;
-};
 
 document.addEventListener("DOMContentLoaded", () => {
   products.forEach((e) => {
@@ -377,9 +342,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   createDropdownItemsCategory(category);
 });
-
-// Filtrar productos según el input de búsqueda.
-const input = document.getElementById("searchInput");
 
 const filterProducts = () => {
   const valorInput = input.value.toLowerCase();
