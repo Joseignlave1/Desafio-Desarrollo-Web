@@ -259,8 +259,8 @@ const noProductosMessage = () => {
 
 // Función para crear las cartas de los productos.
 const createCard = (e) => {
-  let card = "";
-  
+ let card = "";
+
  card += `<div class="card product-card"" >
                  <div class="car-image">
                      <figure class="image is-4by3">
@@ -404,16 +404,16 @@ dropdown_button_category.addEventListener("click", () => {
 
 // Función para crear la acción de los items del dropdown de categorías.
 const createAction = (dropdownId) => {
-  const dropdownItem = document.getElementById(dropdownId);
-
-  dropdownItem.addEventListener('click', () => {
-    const category = dropdownItem.textContent;
-    productList.innerHTML = '';
-    const filteredProducts = products.filter((product) => product.categoria === category);
-    filteredProducts.forEach((product) => {
-      createCard(product);
+    const dropdownItem = document.getElementById(dropdownId);
+    
+    dropdownItem.addEventListener('click', () => {
+        const category = dropdownItem.textContent;
+        productList.innerHTML = '';
+        const filteredProducts = products.filter((product) => product.categoria === category);
+        filteredProducts.forEach((product) => {
+            createCard(product);
+        });
     });
-  });
 }
 
 //Modal de productos
@@ -458,4 +458,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
